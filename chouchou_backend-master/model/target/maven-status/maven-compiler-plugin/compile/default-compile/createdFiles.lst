@@ -1,0 +1,3 @@
+com\chouchou\model\UserManager.class
+com\chouchou\model\Role.class
+com\chouchou\model\AuthProvider.class

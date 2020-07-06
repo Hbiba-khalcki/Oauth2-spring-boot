@@ -1,0 +1,5 @@
+com\chouchou\service\serviceImpl\UserDetailsServiceImpl.class
+com\chouchou\service\RoleService.class
+com\chouchou\service\serviceImpl\UserServiceImp.class
+com\chouchou\service\serviceImpl\RoleServiceImp.class
+com\chouchou\service\UserService.class
