@@ -59,7 +59,7 @@ public class Oauth2AuthenticationSuccessHandler extends SimpleUrlAuthenticationS
             System.out.println("err cookieutils");
         }
 
-        String targetUrl = redirectUri.orElse(getDefaultTargetUrl());
+        String targetUrl = "http://localhost:4200/account";
 
         String token = tokenProvider.createToken(authentication);
 

@@ -8,10 +8,10 @@
   <artifactId>dao</artifactId>
   <name>dao</name>
 	<dependencies>
-        <dependency>
-            <groupId>com.solidWall</groupId>
-            <artifactId>model</artifactId>
-            <version>${project.version}</version>
-        </dependency>
+		<dependency>
+			<groupId>com.solidWall</groupId>
+			<artifactId>model</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 	</dependencies>
 </project>

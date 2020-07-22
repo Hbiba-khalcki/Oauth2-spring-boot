@@ -21,6 +21,12 @@ import io.jsonwebtoken.Jwts;
 
 public class JWTAuthorizationFilter extends OncePerRequestFilter {
 
+	private final AppProperties appProperties ;
+
+	public JWTAuthorizationFilter(AppProperties appProperties) {
+		this.appProperties = appProperties;
+	}
+
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
 			throws ServletException, IOException {
@@ -31,19 +37,19 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
 		response.setHeader("Access-Control-Allow-Credentials", "true");
 		response.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
 		
-		String jwt = request.getHeader(SecurityConstants.HEADER_STRING);
+		String jwt = request.getHeader(appProperties.getAuth().getHeader_string());
 		if (request.getMethod().equals("OPTIONS"))
 				{
 			response.setStatus(HttpServletResponse.SC_OK);
 				}
 		
 		else {
-		if (jwt == null || !jwt.startsWith(SecurityConstants.TOKEN_PREFIX)) {
+		if (jwt == null || !jwt.startsWith(appProperties.getAuth().getToken_prefix())) {
 			filterChain.doFilter(request, response);
 			return;
 		} 
-			Claims claims = Jwts.parser().setSigningKey(SecurityConstants.SECRET)
-					.parseClaimsJws(jwt.replace(SecurityConstants.TOKEN_PREFIX, "")).getBody();
+			Claims claims = Jwts.parser().setSigningKey(appProperties.getAuth().getTokenSecret())
+					.parseClaimsJws(jwt.replace(appProperties.getAuth().getToken_prefix()+" ", "")).getBody();
 			String username = claims.getSubject();
 			Collection<GrantedAuthority> authorities = new ArrayList<>();
 			ArrayList<Map<String, String>> roles = (ArrayList<Map<String, String>>) claims.get("roles");

@@ -15,8 +15,12 @@ public class Role {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="ID_ROLE")
 	private Long id;
-	@Column(name="nom_Role")
+	
+	@Column(name="NOM_ROLE")
 	private String nomRole;
+	
+	@Column( name="description")
+	private String description;
 	
 	
 	
@@ -33,6 +37,22 @@ public class Role {
 		this.id = id;
 		this.nomRole = nomRole;
 	}
+	
+	
+	public Role(Long id, String nomRole, String description) {
+		super();
+		this.id = id;
+		this.nomRole = nomRole;
+		this.description = description;
+	}
+	
+	
+	
+	public Role(String nomRole, String description) {
+		super();
+		this.nomRole = nomRole;
+		this.description = description;
+	}
 	public Long getId() {
 		return id;
 	}
@@ -47,8 +67,22 @@ public class Role {
 	}
 	public Role() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
+	
+	
+	
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	@Override
+	public String toString() {
+		return "Role [id=" + id + ", nomRole=" + nomRole + ", description=" + description + "]";
+	}
+	
+	
 	
 	
 	

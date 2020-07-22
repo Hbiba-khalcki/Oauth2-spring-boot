@@ -32,4 +32,9 @@ public class RoleServiceImp implements RoleService {
 		return roleRepo.save(l);
 	}
 
+	@Override
+	public Role getByName(String name) {
+		return roleRepo.getByName(name);
+	}
+
 }

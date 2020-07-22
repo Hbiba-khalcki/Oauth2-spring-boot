@@ -42,7 +42,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         });
 				*/
 		
-		return (UserDetails) new User( usermanger.getEmail(),usermanger.getPassword(),authorities);
+		return (UserDetails) new User( usermanger.getLogin(),usermanger.getPassword(),authorities);
 		
 	
 	}

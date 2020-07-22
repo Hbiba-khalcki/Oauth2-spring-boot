@@ -25,7 +25,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 public class JWTAuthentificationFilter extends UsernamePasswordAuthenticationFilter {
 
 	private AuthenticationManager authentificationManager;
-
+    private AppProperties appProperties;
 	@Override
 	public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)
 			throws AuthenticationException {
@@ -38,7 +38,7 @@ public class JWTAuthentificationFilter extends UsernamePasswordAuthenticationFil
 		}
 		
 		return authentificationManager
-				.authenticate(new UsernamePasswordAuthenticationToken(emp.getEmail(), emp.getPassword()));
+				.authenticate(new UsernamePasswordAuthenticationToken(emp.getLogin(), emp.getPassword()));
 	}
 
 	@Override
@@ -52,11 +52,11 @@ public class JWTAuthentificationFilter extends UsernamePasswordAuthenticationFil
 	
 		String jwt=Jwts.builder().setSubject(
 				springUser.getUsername()).setExpiration
-				(new Date(System.currentTimeMillis()+SecurityConstants.EXPIRATION_TIME))
-				.signWith(SignatureAlgorithm.HS256,SecurityConstants.SECRET)
+				(new Date(System.currentTimeMillis()+appProperties.getAuth().getTokenExpirationMsec()))
+				.signWith(SignatureAlgorithm.HS256,appProperties.getAuth().getTokenSecret())
 				.claim("roles", springUser.getAuthorities())
 				.compact();
-		response.addHeader(SecurityConstants.HEADER_STRING, SecurityConstants.TOKEN_PREFIX+jwt);
+		response.addHeader(appProperties.getAuth().getHeader_string(), appProperties.getAuth().getToken_prefix()+"" +jwt);
 	
 	}
 

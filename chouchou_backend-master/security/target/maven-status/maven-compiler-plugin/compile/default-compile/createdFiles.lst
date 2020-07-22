@@ -1,6 +1,5 @@
 com\chouchou\security\JWTAuthentificationFilter.class
 com\chouchou\security\oauth2\Oauth2AuthenticationSuccessHandler.class
-com\chouchou\security\SecurityConstants.class
 com\chouchou\security\oauth2\user\OAuth2UserInfoFactory.class
 com\chouchou\security\UserPrincipal.class
 com\chouchou\security\oauth2\user\GoogleOAuth2UserInfo.class
@@ -8,12 +7,15 @@ com\chouchou\security\AppProperties$Auth.class
 com\chouchou\security\ResourceNotFoundException.class
 com\chouchou\security\AppProperties$OAuth2.class
 com\chouchou\security\oauth2\CustomOAuth2UserService.class
+com\chouchou\security\SpringFoxConfig.class
 com\chouchou\security\AppProperties.class
 com\chouchou\security\BadRequestException.class
 com\chouchou\security\oauth2\HttpCookieOAuth2AuthorizationRequestRepository.class
 com\chouchou\security\oauth2\user\FacebookOAuth2UserInfo.class
+com\chouchou\security\oauth2\CustomRequestEntityConverter.class
 com\chouchou\security\CookieUtils.class
 com\chouchou\security\JWTAuthorizationFilter.class
+com\chouchou\security\Keys.class
 com\chouchou\security\OAuth2AuthenticationProcessingException.class
 com\chouchou\security\oauth2\user\OAuth2UserInfo.class
 com\chouchou\security\oauth2\OAuth2AuthenticationFailureHandler.class

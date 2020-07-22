@@ -1,2 +1,16 @@
+com\chouchou\dao\MarqueRepository.class
+com\chouchou\dao\MenuRepository.class
+com\chouchou\dao\ProduitRepository.class
+com\chouchou\dao\CategorieRepository.class
+com\chouchou\dao\OffreRepository.class
 com\chouchou\dao\RoleRepository.class
+com\chouchou\dao\TypeEntrepriseRepository.class
+com\chouchou\dao\ServiceRepository.class
+com\chouchou\dao\CouponRepository.class
+com\chouchou\dao\ReservationRepository.class
+com\chouchou\dao\FournisseurRepository.class
+com\chouchou\dao\ArticleRepository.class
+com\chouchou\dao\AvisRepository.class
+com\chouchou\dao\ImageRepository.class
+com\chouchou\dao\SalonRepository.class
 com\chouchou\dao\UserRepository.class

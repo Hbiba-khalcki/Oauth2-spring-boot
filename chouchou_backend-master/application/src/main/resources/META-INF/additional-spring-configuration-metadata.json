@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "chouchou.auth.tokenExpirationMsec",
+      "type": "java.lang.String",
+      "description": "Description for chouchou.auth.tokenExpirationMsec."
+  }
+] }

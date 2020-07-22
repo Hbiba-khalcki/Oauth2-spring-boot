@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.chouchou.dao.RoleRepository;
 import com.chouchou.dao.UserRepository;
+import com.chouchou.model.Categorie;
 import com.chouchou.model.UserManager;
 import com.chouchou.service.UserService;
 
@@ -13,10 +15,13 @@ import com.chouchou.service.UserService;
 public class UserServiceImp implements UserService {
 	@Autowired
 	UserRepository userRepository;
+	
+	@Autowired
+	RoleRepository roleRepository;
 
 	@Override
 	public UserManager findByLogin(String login) {
-		return userRepository.findByEmail(login);
+		return userRepository.findByLogin(login);
 	}
 
 	@Override
@@ -30,10 +35,16 @@ public class UserServiceImp implements UserService {
 	}
 
 	@Override
-	public void deleteById(int id) {
+	public void deleteById(long id) {
 
 		userRepository.deleteById((long) id);
 	}
+
+	@Override
+	public List<UserManager> findAllByRole(String role) {
+		return userRepository.findAllByRole(role);
+	}
+
 	
 	
 
